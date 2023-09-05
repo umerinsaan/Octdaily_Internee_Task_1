@@ -1,24 +1,27 @@
 <h1 id="top-heading">CRUD Application Using Angular and .NET</h1>
+
+<a routerLink="employees/add" id="add-employee-link">Add Employee</a>
+
 <table id="employees-table">
     <thead id="employees-table-head">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Salary</th>
-            <th>Department</th>
+            <th class="th-tr-heading">ID</th>
+            <th class="th-tr-heading">Name</th>
+            <th class="th-tr-heading">Email</th>
+            <th class="th-tr-heading">Phone</th>
+            <th class="th-tr-heading">Salary</th>
+            <th class="th-tr-heading">Department</th>
         </tr>
     </thead>
 
     <tbody id="employees-table-body">
         <tr class="employee-row" *ngFor="let employee of employees">
-            <td>{{employee.id}}</td>
-            <td>{{employee.name}}</td>
-            <td>{{employee.email}}</td>
-            <td>{{employee.phone}}</td>
-            <td>{{employee.salary}}</td>
-            <td>{{employee.department}}</td>
+            <td class="tbody-td">{{employee.id}}</td>
+            <td class="tbody-td">{{employee.name}}</td>
+            <td class="tbody-td">{{employee.email}}</td>
+            <td class="tbody-td">{{employee.phone}}</td>
+            <td class="tbody-td">{{employee.salary}}</td>
+            <td class="tbody-td">{{employee.department}}</td>
         </tr>
     </tbody>
 </table>
