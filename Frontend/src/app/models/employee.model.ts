@@ -3,6 +3,6 @@ export interface Employee {
     name: string,
     email: string,
     phone: string,
-    salary: number,
+    salary: number | null,
     department: string
 };

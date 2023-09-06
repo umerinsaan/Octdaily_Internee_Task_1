@@ -11,16 +11,29 @@ import { EmployeesService } from 'src/app/services/employees.service';
 export class EmployeesListComponent implements OnInit {
 
   employees: Employee[] = [];
+  pageNumber: number = 1;
+  maxPages: number = 0;
+
   constructor(private employeeService: EmployeesService) { }
   ngOnInit(): void {
-    this.employeeService.getEmployees().subscribe({
-      next: (data: Employee[]) => {
-        this.employees = data;
+    this.callAPI();
+  }
+
+  pageNumberChange(dir: number) {
+    if (this.pageNumber + dir < 1 || this.pageNumber + dir > this.maxPages) return
+    this.pageNumber += dir;
+    this.callAPI();
+  }
+
+  callAPI() {
+    this.employeeService.getEmployees(this.pageNumber).subscribe({
+      next: (res) => {
+        this.employees = res.data as Employee[];
+        this.maxPages = Math.ceil(res.totalCount / 10);
       },
       error: (err) => {
         console.log(err);
       }
     });
   }
-
 }
